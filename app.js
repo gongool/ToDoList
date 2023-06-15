@@ -15,12 +15,13 @@ app.get('/', (req, res) => {
         weekday: "long",
         day: "numeric",
         month: "long",
+    };
 
+    let day = today.toLocaleDateString("en-US", options);
 
+    res.render("list", { kindOfDay: day });
 
-        res.render("list", { kindOfDay: day });
-
-    });
+});
 
 app.listen(port, () => {
     console.log(`Server Is Running On Port ${port}`);
